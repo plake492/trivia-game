@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <p>HI</p>
+
+
+    <form action="#" method="post" class="demoForm" id="demoForm">
+            <fieldset>
+                <legend>Demo: Get Value of Selected</legend>
+            
+            <p>Select a shipping method:</p>
+            <p>
+                <label><input type="radio" name="ship" value="std" checked /> Standard Ground</label>
+                <label><input type="radio" name="ship" value="2day" /> Second Day</label>
+                <label><input type="radio" name="ship" value="1day" /> Overnight</label>
+                <label><input type="radio" name="ship" value="hold" /> Pick up</label>
+            </p>
+            
+            <p><button type="button" name="getVal">Get Value of Selected</button></p>
+            
+            </fieldset>
+        </form>
+
+
+
+    <script>
+
+
+function getRadioVal(form, name) {
+    var val;
+    // get list of radio buttons with specified name
+    var radios = form.elements[name];
+    
+    // loop through list of radio buttons
+    for (var i=0, len=radios.length; i<len; i++) {
+        if ( radios[i].checked ) { // radio checked?
+            val = radios[i].value; // if so, hold its value in val
+            break; // and break out of for loop
+        }
+    }
+    return val; // return value of checked radio or undefined if none checked
+}
+
+// get value of selected 'ship' radio button in 'demoForm'
+var val = getRadioVal( document.getElementById('demoForm'), 'ship' );
+alert(val);
+
+document.getElementById('demoForm').onsubmit = function() {
+    // this (keyword) refers to form to which onsubmit attached
+    // 'ship' is name of radio button group
+    var val = getRadioVal(this, 'ship');
+    // display value obtained
+    alert(val);
+    // more code here ...
+}
+    
+    </script>
+</body>
+</html>
