@@ -11,19 +11,23 @@
 
 <body>
 
-<div class="jumbotron jumbotron-fluid">
+<div class="jumbotron jumbotron-fluid" id="color-change">
     <div class="container">
         <h1 class="display-4" id="countdown"></h1>
         <p class="lead">Answer before the timer runs out</p>
     </div>
 </div>
 
-<div class="jumbotron">
-    <div class="container">           
-        <h1 class="display-4">Questions</h1>
+<div class="jumbotron" id="color-change">
+    <div class="container"> 
+        <div  id="endgame"></div>  
+        <section id="q-section">        
+        <h1 class="display-4">Questions</h1> 
         <hr class="my-4">
+        
 
 <!---------------------------------------- QUESTION 1 ---------------------------------------->
+
         <p class="lead" id="question1">Which of these people never held the title of Manager?</p>
             <div class="form-check form-check-inline">
                 <form>
@@ -43,7 +47,6 @@
                     <label class="form-check-label" for="inlineRadio2">Stanley Hudson</label>
                 </div>    
                 </form>
-
             <hr class="my-4">
 
 <!---------------------------------------- QUESTION 2 ---------------------------------------->
@@ -66,7 +69,6 @@
                     <label class="form-check-label" for="inlineRadio2">Viswan</label>
                 </div>    
                 </form>
-
             <hr class="my-4">
 
 <!---------------------------------------- QUESTION 3 ---------------------------------------->
@@ -89,7 +91,6 @@
                     <label class="form-check-label" for="inlineRadio2">Die Harder</label>
                 </div>    
                 </form>
-
         <hr class="my-4">
 
 <!---------------------------------------- QUESTION 4 ---------------------------------------->
@@ -97,7 +98,7 @@
             <div class="form-check form-check-inline">
                 <form>
                     <input class="form-check-input" type="radio" name="question4" id="q1" value="right">
-                    <label class="form-check-label" for="inlineRadio4">Sandles Jamaica</label>
+                    <label class="form-check-label" for="inlineRadio4">Sandals Jamaica</label>
                 </div>
                 <div class="form-check form-check-inline">
                     <input class="form-check-input" type="radio" name="question4" id="q2" value="wrong">
@@ -112,7 +113,6 @@
                     <label class="form-check-label" for="inlineRadio2">Niagra Falls</label>
                 </div>    
                 </form>         
-
         <hr class="my-4"> 
         
 <!---------------------------------------- QUESTION 5 ---------------------------------------->
@@ -128,23 +128,23 @@
                 </div>
                 <div class="form-check form-check-inline">
                     <input class="form-check-input" type="radio" name="question5" id="q5" value="right">
-                    <label class="form-check-label" for="inlineRadio2">Irigation</label>
+                    <label class="form-check-label" for="inlineRadio2">Irrigation</label>
                 </div>
                 <div class="form-check form-check-inline">
                     <input class="form-check-input" type="radio" name="question5" id="q5" value="wrong">
                     <label class="form-check-label" for="inlineRadio2">Time-travel</label>
                 </div>    
                 </form>         
-
         <hr class="my-4">          
-        
+</section>        
                 
-        <div id="log"> </div>
+
+        <div id="log"></div>
 
             <hr class="my-4">
     
             <div class="col-auto">
-                <button type="submit" class="btn btn-primary mb-2" method="get" action="index2.html" id="getValue" onclick="submitAnswers()">Submit</button>
+                <button type="submit" class="btn btn-primary mb-2" method="get" id="getValue" id="restartGame" onclick="checkAnswers();restartButton()">Submit</button>
             </div>
 
     </div>

@@ -1,16 +1,8 @@
 //===================== VARIABLES ======================//
 let correct = 0;
 let incorrect = 0;
-let timer = 10000
+let timer = 15 
 let intervalId;
-// const questions = [
-//     {q:"tim",a:'4'},
-//     {q:"What does creed do",a:'1'}
-// ]
-// const questionsText = `
-// <p>${questions[0].q}</p>`
-// $('#question1').html(questionsText)
-
 
 //===================== TIMER FUNCTIONS ======================//
                 function run() {
@@ -20,8 +12,19 @@ let intervalId;
                 function decrement() {
                     $("#countdown").html("<h2>" + timer + "</h2>");
                         if (timer === 0) {
+                        $('#getValue').toggle()
+                        $('#q-section').toggle()
+                        $('#endgame').append(`
+                            <p>Times Up IDIOT!</p>
+                            <video width="320" height="240" autoplay controls>
+                                <source src="../trivia-game/assets/videos/idiot.mp4 " type="video/mp4" >
+                            </video>
+                            <div class="col-auto">
+                                <button value="Refresh Page" id="restartGame" class="btn btn-primary mb-2" onClick="window.location.reload();">RELOAD</button>
+                            </div>
+                            `)
+                        checkAnswers ()
                         stop();
-                        alert("Time Up!");
                     }
                     timer--;   
                 }
@@ -32,15 +35,13 @@ let intervalId;
 
 run()
 
-function submitAnswers() { 
-    // var button = document.getElementsByName("question1"); 
+function checkAnswers() { 
     let answer1 = $("input[type='radio'][name='question1']:checked").val()
     let answer2 = $("input[type='radio'][name='question2']:checked").val()
     let answer3 = $("input[type='radio'][name='question3']:checked").val()
     let answer4 = $("input[type='radio'][name='question4']:checked").val()
     let answer5 = $("input[type='radio'][name='question5']:checked").val()
 
-    
     if (answer1 === "right") {
             correct++
         } else {
@@ -51,7 +52,6 @@ function submitAnswers() {
         } else {
             incorrect++
         }
-
     if (answer3 === "right") {
             correct++
         } else {
@@ -67,16 +67,57 @@ function submitAnswers() {
         } else {
             incorrect++
         }
-   
-    console.log(answer1)
-    console.log(answer2)
-    console.log(answer3)
-    console.log(answer4)
-    console.log(answer5)
-    console.log("CORRECT " + correct)
-    console.log("WRONG " + incorrect)
   
     $('#log').append('<p> Correct: ' + correct + '</p>')
     $('#log').append('<p> Incorrect: ' + incorrect + '</p>')
-
+    stop()
 }
+
+function restartButton (){
+    $('section').append(`
+        <div class="col-auto">
+            <button value="Refresh Page" class="btn btn-primary mb-2" id="restartGame" onClick="window.location.reload();">RELOAD</button>
+        </div>
+    `)
+
+    $('#getValue').toggle()
+    if (correct < 3) {
+        $('#log').append(`
+        <p>You Are the Worst</p>
+        <video width="320" height="240" autoplay controls>
+            <source src="../trivia-game/assets/videos/NO.mp4 " type="video/mp4" >
+        </video>`)
+    } else { 
+        $('#log').append(`
+        <p>You Are the Best</p>
+        <video width="320" height="240" autoplay controls>
+            <source src="../trivia-game/assets/videos/Good.mp4 " type="video/mp4" >
+        </video>`)
+
+    }
+}
+
+function restartGame(){
+    $('#getValue').toggle()
+    $('#q-section').toggle()
+    $('#endgame').toggle()
+    $('#log').toggle()
+    correct = 0;
+    incorrect = 0;
+    timer = 3
+    intervalId; 
+    
+    run()
+}
+
+function restartGameSub(){
+    $('#getValue').toggle()
+    $('#endgame').hide()
+    $('#log').toggle()
+    correct = 0;
+    incorrect = 0;
+    timer = 3
+    intervalId; 
+    run()
+}
+
