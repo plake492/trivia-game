@@ -1,0 +1,6 @@
+Here I've made a "The Office" themed trivia games. You have -- seconds to answer all the questions. 
+If the timer runs out, the game will end and tell you how many you git right and how many you got wrong.
+When you submit your answer, It will play one of two scens from The Office, depenmding on if you git more than half, 
+or less than half of the answers correct.
+
+I was unable to make it reset as requested, but I did add a refresh function that refreshes the page on click (I know it says to not refresh the page, but I though it was better than nothing) 

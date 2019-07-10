@@ -1,7 +1,7 @@
 //===================== VARIABLES ======================//
 let correct = 0;
 let incorrect = 0;
-let timer = 15 
+let timer = 3
 let intervalId;
 
 //===================== TIMER FUNCTIONS ======================//
@@ -14,9 +14,9 @@ let intervalId;
                         if (timer === 0) {
                         $('#getValue').toggle()
                         $('#q-section').toggle()
-                        $('#endgame').append(`
+                        $('#endgame').html(`
                             <p>Times Up IDIOT!</p>
-                            <video width="320" height="240" autoplay controls>
+                            <video width="320" height="240" playsinline autoplay controls>
                                 <source src="../trivia-game/assets/videos/idiot.mp4 " type="video/mp4" >
                             </video>
                             <div class="col-auto">
@@ -97,27 +97,27 @@ function restartButton (){
     }
 }
 
-function restartGame(){
-    $('#getValue').toggle()
-    $('#q-section').toggle()
-    $('#endgame').toggle()
-    $('#log').toggle()
-    correct = 0;
-    incorrect = 0;
-    timer = 3
-    intervalId; 
+// function restartGame(){
+//     $('#getValue').toggle()
+//     $('#q-section').toggle()
+//     $('#endgame').toggle()
+//     $('#log').toggle()
+//     correct = 0;
+//     incorrect = 0;
+//     timer = 3
+//     intervalId; 
     
-    run()
-}
+//     run()
+// }
 
-function restartGameSub(){
-    $('#getValue').toggle()
-    $('#endgame').hide()
-    $('#log').toggle()
-    correct = 0;
-    incorrect = 0;
-    timer = 3
-    intervalId; 
-    run()
-}
+// function restartGameSub(){
+//     $('#getValue').toggle()
+//     $('#endgame').hide()
+//     $('#log').toggle()
+//     correct = 0;
+//     incorrect = 0;
+//     timer = 3
+//     intervalId; 
+//     run()
+// }
 
