@@ -1,7 +1,7 @@
 //===================== VARIABLES ======================//
 let correct = 0;
 let incorrect = 0;
-let timer = 3
+let timer = 30;
 let intervalId;
 
 //===================== TIMER FUNCTIONS ======================//
