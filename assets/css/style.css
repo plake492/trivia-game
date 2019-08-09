@@ -3,7 +3,7 @@
     src: url("../fonts/AmericanTypewriter_Medium.ttf") format('truetype');
 }
 
-body {
+body {  
     font-family: office, sans-serif;
     background-image: url("../images/Background3.jpg");
     background-size: cover;
